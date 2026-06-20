@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一竞技 · 知识导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f8f9fb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      color: #1e2a3a;
+    }
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    /* 顶部导航 */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0 1.2rem;
+      border-bottom: 1px solid #e3e8ed;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .nav-brand {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #0b2a3c;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      font-size: 0.92rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #3b4e62;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #106a7a;
+    }
+
+    /* hero 区域 */
+    .hero {
+      margin: 3rem 0 2.5rem;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      color: #0b1f2b;
+    }
+    .hero p {
+      font-size: 1.02rem;
+      color: #304050;
+      max-width: 640px;
+    }
+
+    /* 次级标题 */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 2.8rem 0 1.2rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #dce3ea;
+      color: #183544;
+    }
+
+    /* 卡片/模块 */
+    .scene-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      margin: 1.8rem 0 2.5rem;
+    }
+    .scene-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.6rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 20, 40, 0.04);
+      transition: box-shadow 0.2s;
+    }
+    .scene-card:hover {
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    }
+    .scene-card h3 {
+      font-size: 1.12rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: #1a2f40;
+    }
+    .scene-card p {
+      color: #31485e;
+      font-size: 0.96rem;
+    }
+    .scene-card em {
+      font-style: normal;
+      background: #edf2f7;
+      padding: 0 0.25rem;
+      border-radius: 3px;
+      color: #0b4b5a;
+    }
+
+    /* 常见说明 (faq 摘要) */
+    .faq-block {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.4rem 1.8rem;
+      margin: 2rem 0 2.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+    .faq-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #eceff3;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+      font-size: 1rem;
+      color: #1f3447;
+    }
+    .faq-a {
+      color: #3a526a;
+      font-size: 0.93rem;
+      line-height: 1.65;
+    }
+
+    /* 提示 / 延伸阅读 */
+    .note-box {
+      background: #ecf3f7;
+      border-left: 4px solid #357a8a;
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 10px 10px 0;
+      margin: 2rem 0 2.5rem;
+    }
+    .note-box p {
+      font-size: 0.95rem;
+      color: #1b3344;
+    }
+
+    /* 页脚 */
+    .footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #dce3ea;
+      font-size: 0.85rem;
+      color: #5a6f83;
+      text-align: center;
+    }
+    .footer a {
+      color: #0f5f6f;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* 响应式 */
+    @media (max-width: 500px) {
+      .page {
+        padding: 1.5rem 1rem 2.5rem;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.85rem;
+      }
+      .scene-card {
+        padding: 1.2rem 1.2rem;
+      }
+      .faq-block {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="nav">
+    <span class="nav-brand">一竞技 · 体育知识</span>
+    <div class="nav-links">
+      <a href="#intro">检索</a>
+      <a href="#scenes">对照</a>
+      <a href="#faq">延伸</a>
+    </div>
+  </nav>
+
+  <!-- hero 核心介绍 -->
+  <div class="hero" id="intro">
+    <h1>体育数据查询与对照</h1>
+    <p>从日常赛事检索、队伍对比到技术统计延伸，<a href="https://sports-yijinji.com" style="color:#106a7a; text-decoration:underline;">一竞技</a> 提供平稳的体育信息参考环境，帮助爱好者与内容创作者快速检索所需内容。</p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <h2 class="section-title" id="scenes">三类常见使用场景</h2>
+  <div class="scene-grid">
+    <div class="scene-card">
+      <h3>📋 日常赛事查询</h3>
+      <p>快速了解近期赛程、比分分布与队伍状态。通过 <em>联赛筛选</em>、<em>日期区间</em> 两个维度即可定位到具体场次，省去反复翻页的冗余操作。</p>
+    </div>
+    <div class="scene-card">
+      <h3>📊 数据对照与比较</h3>
+      <p>在同一视图下并排展示两队的核心指标：控球率、射门次数、抢断效率等。适合写赛前分析或赛后回顾时直接引用，减少手动整理误差。</p>
+    </div>
+    <div class="scene-card">
+      <h3>📖 延伸阅读与趋势</h3>
+      <p>基于已有数据生成队伍近五场走势、主客场差异、关键球员参与度等辅助信息。帮助你从单纯比分中跳脱出来，发现更有讨论价值的细节。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <div class="faq-block" id="faq">
+    <h2 style="font-size:1.2rem; font-weight:500; margin-bottom:0.8rem; color:#1d3346;">常见说明 · 快速索引</h2>
+    <div class="faq-item">
+      <div class="faq-q">数据覆盖哪些赛事？</div>
+      <div class="faq-a">涵盖足球、篮球主流联赛及杯赛，数据源持续更新。具体赛事列表可在 <a href="https://sports-yijinji.com" style="color:#106a7a; text-decoration:underline;">一竞技</a> 页面顶部「赛事」类别中展开查看。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">如何快速定位某一场比赛？</div>
+      <div class="faq-a">使用搜索框输入队伍名或赛事关键词，系统会联想匹配。同时支持按日期、联赛做二次过滤，降低查找成本。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">延伸阅读中的趋势图表是否可导出？</div>
+      <div class="faq-a">趋势图以页面截图方式保存，或复制数据表格自行整理。目前提供基础可视化，便于快速理解走向。</div>
+    </div>
+  </div>
+
+  <!-- 提示 / 延伸阅读段落 -->
+  <div class="note-box">
+    <p><strong>💡 延伸参考</strong> — 对照数据时，建议同时关注近期交锋记录与伤病动态，结合场外因素能更全面理解比分背后的逻辑。<a href="https://sports-yijinji.com" style="color:#106a7a; text-decoration:underline;">一竞技</a> 的「交锋历史」模块可辅助这一分析过程。</p>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>基于公开体育数据整理 · 供学习与参考 · <a href="https://sports-yijinji.com">一竞技</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
